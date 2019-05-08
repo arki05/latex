@@ -1,4 +1,4 @@
-FROM blang\latex
+FROM blang/latex
 
 RUN apt-get update && apt-get install -y git
 
