@@ -1,10 +1,10 @@
-FROM blang/latex
+FROM blang/latex:ubuntu
 
 RUN apt-get update && apt-get install -y git
 
 RUN cd ~; \
     mkdir texmf; \
-    tlmgr init-usertree;
+    tlmgr init-usertree || 0;
 
 RUN mkdir -p ~/texmf/tex/latex; \
     cd ~/texmf/tex/latex; \
