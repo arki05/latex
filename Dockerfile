@@ -1,10 +1,14 @@
-FROM blang/latex:ubuntu
+FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git && apt-get install -y wget
+
+RUN wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu; \
+    chmod +x ./install-tl-ubuntu; \
+    ./install-tl-ubuntu;
 
 RUN cd ~; \
     mkdir texmf; \
-    tlmgr init-usertree || 0;
+    tlmgr init-usertree;
 
 RUN mkdir -p ~/texmf/tex/latex; \
     cd ~/texmf/tex/latex; \
