@@ -16,12 +16,15 @@ RUN apt-get update -q && apt-get install -qy \
     inkscape \
     latexmk \
     latexdiff \
+    wget \
+    git \
+    xzdec \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y git && apt-get install -y wget
 
-RUN cd ~; \
+RUN PATH=/usr/local/texlive/bin/x86_64-linux:$PATH; export PATH; \
+    cd ~; \
     mkdir texmf; \
     tlmgr init-usertree; \
     mkdir -p ~/texmf/tex/latex; \
