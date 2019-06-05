@@ -22,13 +22,13 @@ RUN apt-get update -q && apt-get install -qy \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN PATH=/usr/local/texlive/bin/x86_64-linux:$PATH; export PATH; cd /usr/local/; ls
+RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
 
 RUN cd ~; \
     mkdir texmf; \
     tlmgr init-usertree; \
     tlmgr update --self; \
-    tlmgr update --all    
+    tlmgr update --all
 
 RUN mkdir -p ~/texmf/tex/latex; \
     cd ~/texmf/tex/latex; \
