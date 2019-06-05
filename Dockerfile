@@ -1,7 +1,6 @@
 FROM phipsgabler/texlive-minimal
 
-RUN apt-get update -q && apt-get install -qy \
-    python-pygments gnuplot \
+RUN apk update && apk add python-pygments gnuplot \
     make git \
     cron \
     tree \
@@ -13,8 +12,6 @@ RUN apt-get update -q && apt-get install -qy \
     wget \
     git \
     xzdec \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
 
 RUN tlmgr install scheme-full
 
