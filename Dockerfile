@@ -1,17 +1,12 @@
 FROM phipsgabler/texlive-minimal
 
 RUN apk update && apk add python-pygments gnuplot \
-    make git \
-    cron \
-    tree \
-    curl \
+    git \
     imagemagick \
     inkscape \
     latexmk \
     latexdiff \
-    wget \
-    git \
-    xzdec \
+    wget 
 
 RUN tlmgr install scheme-full
 
