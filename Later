@@ -19,3 +19,6 @@ RUN mkdir -p ~/texmf/tex/latex; \
     texhash; \
     tlmgr info; \
     tlmgr info coloremoji;
+
+
+    RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
