@@ -1,13 +1,4 @@
 FROM phipsgabler/texlive-minimal
-
-RUN apk update && apk add python-pygments gnuplot \
-    git \
-    imagemagick \
-    inkscape \
-    latexmk \
-    latexdiff \
-    wget 
-
 RUN tlmgr install scheme-full
 
 RUN mkdir -p ~/texmf/tex/latex; \
